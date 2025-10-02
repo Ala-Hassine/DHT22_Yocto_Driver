@@ -26,7 +26,7 @@ A complete Yocto-based embedded Linux solution for BeagleBone that includes kern
 
 ## 🛠️ Installation & Setup
 
-### Step 1: Setup Yocto Kirkstone Environment
+### Step 1 : Setup Yocto Kirkstone Environment
 
 ```bash
 # Create project directory
@@ -52,7 +52,7 @@ cd ..
 echo 'MACHINE = "beaglebone"' >> build/conf/local.conf
 ```
 
-### Step 2: Create Custom Layer for DHT22
+### Step 2 : Create Custom Layer for DHT22
 
 ```bash
 # Create custom layer
@@ -62,15 +62,15 @@ bitbake-layers create-layer meta-dht22
 bitbake-layers add-layer ../meta-dht22
 ```
 
-### Step 3: Build DHT22 Driver
+### Step 3 : Build DHT22 Driver
 
 The layer includes:
-- 📁 `recipes-kernel/dht22/dht22.c` - Kernel driver source
-- 📁 `recipes-kernel/dht22/dht22.h` - Header file
-- 📁 `recipes-kernel/dht22/Makefile` - Build configuration
-- 📁 `recipes-kernel/dht22/dht22.bb` - BitBake recipe
+- 📁 `recipes-kernel/dht22/dht22.c`  - Kernel Driver Source
+- 📁 `recipes-kernel/dht22/dht22.h`  - Header File
+- 📁 `recipes-kernel/dht22/Makefile` - Build Configuration
+- 📁 `recipes-kernel/dht22.bb`       - BitBake Recipe
 
-### Step 4: Include Driver in Yocto Image
+### Step 4 : Include Driver in Yocto Image
 
 ```bash
 # Add driver to image
@@ -110,12 +110,12 @@ DHT22_Yocto_Driver/
 │   ├── 📁 meta-openembedded/
 │   └── 📁 meta-ti/
 ├── 📁 meta-dht22/
-│   └── 📁 recipes-kernel/
-│       └── 📁 dht22/
+│   └── 📁 recipes-kernel/       # Kernel Recipes Directory
+│       ├── 🍳 dht22.bb          # BitBake recipe
+│       └── 📁 dht22/            # Source files directory
 │           ├── 🐧 dht22.c
 │           ├── 📄 dht22.h
-│           ├── 🔧 Makefile
-│           └── 🍳 dht22.bb
+│           └── 🔧 Makefile
 └── 📁 build/
 ```
 
@@ -152,7 +152,7 @@ watch -n 2 'cat /dev/dht22'
 ```bash
 #!/bin/bash
 READING=$(cat /dev/dht22)
-echo "Sensor Data: $READING"
+echo "Sensor Data : $READING"
 # Use in your applications
 ```
 
@@ -169,9 +169,9 @@ echo "Sensor Data: $READING"
 We welcome contributions! Please feel free to submit pull requests, report bugs, or suggest new features.
 
 1. 🍴 Fork the repository
-2. 🌿 Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+2. 🌿 Create your feature branch (`git checkout -b feature/AlaFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AlaFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AlaFeature`)
 5. 🔃 Open a Pull Request
 
 ## 📜 License
@@ -199,40 +199,3 @@ If you encounter any issues or have questions:
 If you find this project useful, please give it a star! ⭐
 
 ---
-
-**Happy Building!** 🚀🔧🌡️
-```
-
-## Key Improvements Made:
-
-### 🎨 **Visual Enhancements**
-- Added relevant icons for better visual appeal
-- Included badges for quick project status overview
-- Used emojis to make sections more engaging
-
-### 📝 **Content Improvements**
-- Added clear features list upfront
-- Better organized prerequisites
-- Improved code formatting and syntax highlighting
-- Added hardware configuration table
-- Enhanced project structure visualization
-- Added debugging and usage examples
-- Included technical specifications
-
-### 🔧 **Technical Clarity**
-- Fixed syntax in Yocto commands (`IMAGE_INSTALL:append`)
-- Added proper hardware pinout table
-- Included comprehensive debugging section
-- Added practical usage examples
-
-### 🏗️ **Better Structure**
-- Clear, logical flow from setup to usage
-- Separated configuration from execution
-- Added contribution guidelines
-- Included support and acknowledgment sections
-
-### 📋 **Professional Touches**
-- Added license information
-- Included contribution guidelines
-- Added support section
-- Professional formatting throughout
