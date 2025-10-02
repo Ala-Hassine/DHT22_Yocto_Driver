@@ -22,16 +22,32 @@ A Yocto-Based Embedded Linux Image For Beaglebone That Includes Drivers And Appl
 ### 4. Initialize The Build Environment :
 λ cd ~/DHT22_Yocto_Driver
 λ source layers/poky/oe-init-build-env build/
+λ cd ..
 
 ### 5. Modify Target Machine In conf/local.conf :
 MACHINE ?= "beaglebone"
 
 ---
 
+## Step 2 : Create A Custom Layer For DHT22
 
+### 1. Create Layer :
+λ bitbake-layers create-layer meta-dht22
+
+### 2. Add It To Your Build :
+λ bitbake-layers add-layer ../meta-dht11
 
 ---
 
+## Step 3 : Write The DHT22 Driver
 
+### 1. Create DHT22 Drivers :
+Go To Your Layer Directory : meta-dht22/recipes-drivers/dht22/ and Create DHT22 Drivers (.h/.c)
+
+### 2. Create The BitBake Recipe :
+Go To Your Layer Directory : meta-dht22/recipes-drivers/ and Create DHT22 BitBake Recipe (.bb)
+
+### 3. Create The Makefile :
+Go To Your Layer Directory : meta-dht22/recipes-drivers/dht22 and Create Makefile
 
 ---
