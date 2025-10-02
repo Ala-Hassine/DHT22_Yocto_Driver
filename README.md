@@ -1,4 +1,7 @@
 # DHT22_Yocto_Driver
+
+---
+
 A Yocto-Based Embedded Linux Image For Beaglebone That Includes Drivers And Applications To Read Temperature And Humidity Data From A DHT22 Sensor.
 
 ---
@@ -49,5 +52,26 @@ Go To Your Layer Directory : meta-dht22/recipes-drivers/ and Create DHT22 BitBak
 
 ### 3. Create The Makefile :
 Go To Your Layer Directory : meta-dht22/recipes-drivers/dht22 and Create Makefile
+
+---
+
+## Step 4 : Include Driver In Yocto Image
+
+### 1. Edit conf/local.conf :
+IMAGE_INSTALL_append = " dht22"
+
+### 2. Build The Image :
+λ bitbake core-image-minimal
+
+---
+
+## Step 5 : Flash SD Card And Test
+
+### 1. Flash .wic Image To SD Card.
+### 2. Boot BeagleBone.
+### 3. Check Temperature And Humidity
+
+λ cat /dev/dht22
+# Example Output : Temp:44C Hum:71%
 
 ---
